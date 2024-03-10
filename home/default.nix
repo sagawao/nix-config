@@ -1,6 +1,10 @@
 { config, pkgs, ... }: {
   imports = [
     ./alacritty.nix
+    ./starship.nix
+    ./zsh.nix
+    ./neovim.nix
+    ./dev.nix
   ];
 
   home = rec {
@@ -14,7 +18,6 @@
       zellij
       starship
       zsh
-      cowsay
     ];
 
     sessionVariables = {
@@ -25,13 +28,6 @@
 
   programs.home-manager.enable = true;
 
-  programs.zsh = {
-    enable = true;
-    autocd = true;
-    enableCompletion = true;
-    enableAutosuggestions = true;
-  };
-
   programs.git = {
     enable = true;
     userName = "sagawao";
@@ -39,10 +35,6 @@
     extraConfig = {
       init.defaultBranch = "main";
     };
-  };
-
-  programs.starship = {
-    enable = true;
   };
 
   programs.zellij = {

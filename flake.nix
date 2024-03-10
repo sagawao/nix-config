@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixvim.url = "github:nix-community/nixvim";
+    rust-overlay.url = "github:oxalica/rust-overlay";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,7 +18,10 @@
     };
     homeConfigurations = {
       "sagawao@lox" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        pkgs = import inputs.nixpkgs {
+	  system = "x86_64-linux";
+	  overlays = [(import inputs.rust-overlay)];
+	};
 	modules = [ ./home ];
       };
     };
