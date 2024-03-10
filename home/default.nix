@@ -4,7 +4,6 @@
     ./starship.nix
     ./zsh.nix
     ./neovim.nix
-    ./dev.nix
   ];
 
   home = rec {
