@@ -8,23 +8,18 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs: let
-    inherit (self) outputs;
-    in {
+  outputs = { self, nixpkgs, home-manager, ... } @inputs:
+  {
     nixosConfigurations = {
       lox = inputs.nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
         system = "x86_64-linux";
-        modules = [
-          ./configuration.nix
-        ];
+        modules = [ ./system/configuration.nix ];
       };
     };
     homeConfigurations = {
       "sagawao@lox" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs;};
-	modules = [./home/home.nix];
+	modules = [ ./home ];
       };
     };
   };
