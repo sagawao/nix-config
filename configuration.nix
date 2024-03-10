@@ -14,7 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "lox"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -59,7 +59,7 @@
       defaultFonts = {
         serif = ["Noto Serif CJK JP" "Noto Color Emoji"];
         sansSerif = ["Noto sans CJK JP" "Noto Color Emoji"];
-        monospace = ["HackGen35 Console" "Nerd Font"];
+        monospace = ["HackGen35 Console NF" "Nerd Font"];
         emoji = ["Noto Color Emoji"];
       };
     };
@@ -110,7 +110,6 @@
       firefox
     #  thunderbird
     ];
-    shell = pkgs.zsh;
   };
 
   # Enable automatic login for the user.
@@ -120,10 +119,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    git
+    neovim
   ];
-
+  environment.variables.EDITOR = "neovim";
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -158,19 +157,8 @@
   };
 
   programs = {
-    git = {
-      enable = true;
-    };
-#    vim = {
-#      enable = true;
-#     defaultEditor = true;
-#    };
-    starship = {
-      enable = true;
-    };
-    zsh = {
-      enable = true;
-    };
+    git.enable = true;
+    neovim.enable = true;
   };
 }
 
