@@ -100,15 +100,13 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+
+  users.defaultUserShell = pkgs.zsh;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.sagawao = {
     isNormalUser = true;
     description = "sagawao";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-    #  thunderbird
-    ];
   };
 
   # Enable automatic login for the user.
@@ -120,6 +118,7 @@
   environment.systemPackages = with pkgs; [
     git
     neovim
+    zsh
     just
     curl
     cachix
@@ -161,6 +160,7 @@
   programs = {
     git.enable = true;
     neovim.enable = true;
+    zsh.enable = true;
   };
 }
 

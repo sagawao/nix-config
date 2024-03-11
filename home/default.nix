@@ -19,6 +19,7 @@
       starship
       zsh
       direnv
+      firefox
     ];
 
     sessionVariables = {
@@ -33,9 +34,9 @@
       };
     };
   };
-
+  
   programs.home-manager.enable = true;
-
+  
   programs.git = {
     enable = true;
     userName = "sagawao";
