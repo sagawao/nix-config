@@ -35,8 +35,6 @@
     };
   };
   
-  programs.home-manager.enable = true;
-  
   programs.git = {
     enable = true;
     userName = "sagawao";
@@ -52,7 +50,9 @@
     nix-direnv.enable = true;
   };
 
-  programs.zellij = {
-    enable = true;
+  programs = {
+    zellij.enable = true;
+    home-manager.enable = true;
+    firefox.enable = true;
   };
 }
