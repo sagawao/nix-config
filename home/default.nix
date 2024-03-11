@@ -14,14 +14,23 @@
     packages = with pkgs; [
       git
       alacritty
+      alacritty-theme
       zellij
       starship
       zsh
+      direnv
     ];
 
     sessionVariables = {
       EDITOR = "nvim";
       TERMINAL = "alacritty";
+    };
+    
+    file = {
+      "wallpaper.png" = {
+        target = "/Wallpaper/wallpaper.png";
+	source = ./wallpaper/nix-wallpaper-nineish-solarized-light.png;
+      };
     };
   };
 
@@ -34,6 +43,12 @@
     extraConfig = {
       init.defaultBranch = "main";
     };
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
   };
 
   programs.zellij = {
