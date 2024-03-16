@@ -1,29 +1,29 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    
+    # Build a custom WSL installer
+    nixos-wsl.url = "github:nix-community/NixOS-WSL";
+    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @inputs:
-  {
-    nixosConfigurations = {
-      lox = inputs.nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-	  ./system/configuration.nix
-	];
-      };
+  outputs = { self, nixpkgs, home-manager, ... } @inputs: let
+    mkSystem = import ./lib/mksystem.nix {
+      inherit nixpkgs inputs;
     };
-    homeConfigurations = {
-      "sagawao@lox" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import inputs.nixpkgs {
-	  system = "x86_64-linux";
-	};
-	modules = [ ./home ];
-      };
+  in {
+    nixosConfigurations.intel = mkSystem "intel" {
+      system = "x86_64-linux";
+    };
+
+    nixosConfigurations.wsl = mkSystem "wsl" {
+      system = "x86_64-linux";
+      wsl = true;
     };
   };
 }

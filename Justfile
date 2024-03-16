@@ -6,14 +6,14 @@
 #
 ############################################################################
 
-osdeploy:
-  sudo nixos-rebuild switch --flake .#lox
+re-intel:
+  sudo nixos-rebuild switch --flake .#intel
 
-osdebug:
-  nixos-rebuild switch --flake .#lox --show-trace --verbose
+debug-intel:
+  nixos-rebuild switch --flake .#intel --show-trace --verbose
 
 sagawao:
-  nix run nixpkgs#home-manager -- switch --flake .#sagawao@lox
+  nix run nixpkgs#home-manager -- switch --flake .#sagawao@intel
 
 up:
   nix flake update

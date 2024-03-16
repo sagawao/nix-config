@@ -1,4 +1,6 @@
-{ config, pkgs, ... }: {
+{ isWSL, inputs, ... }:
+
+{ config, lib, pkgs, ... }: {
   imports = [
     ./alacritty.nix
     ./starship.nix
@@ -13,26 +15,27 @@
 
     packages = with pkgs; [
       git
-      alacritty
-      alacritty-theme
       zellij
       starship
       zsh
       direnv
+    ] ++ (lib.optionals (!isWSL) [
       firefox
-    ];
+      alacritty
+      alacritty-theme
+    ]);
 
     sessionVariables = {
       EDITOR = "nvim";
       TERMINAL = "alacritty";
     };
     
-    file = {
+    file = (if (!isWSL) then {
       "wallpaper.png" = {
         target = "/Wallpaper/wallpaper.png";
 	source = ./wallpaper/nix-wallpaper-nineish-solarized-light.png;
-      };
-    };
+       };
+      } else {});
   };
   
   programs.git = {
@@ -53,6 +56,6 @@
   programs = {
     zellij.enable = true;
     home-manager.enable = true;
-    firefox.enable = true;
+    firefox.enable = !isWSL;
   };
 }
