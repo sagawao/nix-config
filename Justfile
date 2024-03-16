@@ -12,6 +12,12 @@ re-intel:
 debug-intel:
   nixos-rebuild switch --flake .#intel --show-trace --verbose
 
+re-wsl:
+  sudo nixos-rebuild switch --flake .#wsl
+
+debug-wsl:
+  nixos-rebuild switch --flake .#wsl --show-trace --verbose
+
 sagawao:
   nix run nixpkgs#home-manager -- switch --flake .#sagawao@intel
 
