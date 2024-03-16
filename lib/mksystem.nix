@@ -11,7 +11,13 @@ in nixpkgs.lib.nixosSystem rec {
   inherit system;
 
   modules = [
-    ( if isWSL then inputs.nixos-wsl.nixosModules.wsl else {} )
+    ( if isWSL then {
+      imports = [
+        inputs.nixos-wsl.nixosModules.wsl
+        inputs.vscode-server.nixosModules.default
+      ];
+      services.vscode-server.enable = true;
+    }else {} )
     
     machineConfig
     osConfig
