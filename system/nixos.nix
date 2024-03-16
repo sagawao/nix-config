@@ -1,6 +1,15 @@
 { config, pkgs, ... }:
 
 {
+  system.stateVersion = "23.11";
+  nix = {
+    settings = {
+      experimental-features = ["nix-command" "flakes"];
+      keep-outputs = true;
+      keep-derivations = true;
+    };
+  };
+
   users.users.sagawao = {
     isNormalUser = true;
     home = "/home/sagawao";
@@ -15,13 +24,6 @@
     curl
 ];
   environment.variables.EDITOR = "nvim";
-  system.stateVersion = "23.11";
-
-  nix = {
-    settings = {
-      experimental-features = ["nix-command" "flakes"];
-    };
-  };
 
   programs = {
     neovim.enable = true;

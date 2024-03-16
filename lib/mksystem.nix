@@ -4,10 +4,13 @@ name:
 { system, wsl ? false }:
 
 let
+
   isWSL = wsl;
   machineConfig = ../system/machines/${name}.nix;
   osConfig = ../system/nixos.nix;
+
 in nixpkgs.lib.nixosSystem rec {
+
   inherit system;
 
   modules = [
@@ -17,7 +20,7 @@ in nixpkgs.lib.nixosSystem rec {
         inputs.vscode-server.nixosModules.default
       ];
       services.vscode-server.enable = true;
-    }else {} )
+    } else {} )
     
     machineConfig
     osConfig
@@ -27,15 +30,15 @@ in nixpkgs.lib.nixosSystem rec {
       home-manager.useUserPackages = true;
       home-manager.users.sagawao = import ../home/default.nix {
         isWSL = isWSL;
-	inputs = inputs;
+	      inputs = inputs;
       };
     }
 
     {
       config._module.args = {
         currentSystem = system;
-	isWSL = isWSL;
-	inputs = inputs;
+        isWSL = isWSL;
+        inputs = inputs;
       };
     }
   ];

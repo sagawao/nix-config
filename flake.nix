@@ -13,11 +13,13 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, vscode-server, ... } @inputs: let
+  outputs = { self, nixpkgs, home-manager, vscode-server, ... } @inputs:
+  let
     mkSystem = import ./lib/mksystem.nix {
       inherit nixpkgs inputs;
     };
   in {
+  
     nixosConfigurations.intel = mkSystem "intel" {
       system = "x86_64-linux";
     };

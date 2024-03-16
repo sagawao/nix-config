@@ -10,7 +10,7 @@
 
   home = rec {
     username = "sagawao";
-    homeDirectory = "/home/${username}";
+    homeDirectory = "/home/sagawao";
     stateVersion = "22.11";
 
     packages = with pkgs; [
