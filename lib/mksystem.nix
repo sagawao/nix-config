@@ -30,7 +30,7 @@ in nixpkgs.lib.nixosSystem rec {
       home-manager.useUserPackages = true;
       home-manager.users.sagawao = import ../home/default.nix {
         isWSL = isWSL;
-	      inputs = inputs;
+	inputs = inputs;
       };
     }
 
