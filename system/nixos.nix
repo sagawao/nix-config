@@ -20,7 +20,7 @@
     git
     neovim
     zsh
-    just
+    go-task
     curl
 ];
   environment.variables.EDITOR = "nvim";

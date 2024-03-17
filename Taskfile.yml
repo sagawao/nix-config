@@ -1,0 +1,25 @@
+version: '3'
+
+tasks:
+  re-*:
+    vars:
+      SYSTEM: '{{index .MATCH 0}}'
+    cmds:
+      - sudo nixos-rebuild switch --flake .#{{.SYSTEM}}
+  debug-*:
+    vars:
+      SYSTEM: '{{index .MATCH 0}}'
+    cmds:
+      - nixos-rebuild switch --flake .#{{.SYSTEM}} --show-trace --verbose
+  re-user:
+    cmds:
+      - nix run nixpkgs#home-manager -- switch --flake .#sagawao
+  up:
+    cmds:
+      - nix flake update
+  clean:
+    cmds:
+      - sudo nix profile wipe-history --profile /nix/var/nix/profiles/system --older-than 7d
+  gc:
+    cmds:
+      - sudo nix-collect-garbage --delete-old
