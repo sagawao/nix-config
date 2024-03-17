@@ -2,6 +2,7 @@
 
 { config, lib, pkgs, ... }: {
   imports = [
+    inputs.nixvim.homeManagerModules.nixvim
     ./alacritty.nix
     ./starship.nix
     ./zsh.nix

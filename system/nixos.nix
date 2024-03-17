@@ -18,7 +18,6 @@
 
   environment.systemPackages = with pkgs; [
     git
-    neovim
     zsh
     go-task
     curl
@@ -26,7 +25,6 @@
   environment.variables.EDITOR = "nvim";
 
   programs = {
-    neovim.enable = true;
     git.enable = true;
     zsh.enable = true;
   };

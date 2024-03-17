@@ -1,14 +1,14 @@
 { pkgs, ... }: {
-  programs.neovim = {
+  programs.nixvim = {
     enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    
-    extraPackages = with pkgs; [
-      nodePackages.eslint
-      nodePackages.prettier
-      nodePackages.typescript-language-server
-      rust-analyzer
+
+    options = {
+      relativenumber = true;
+    };
+
+    extraPlugins = with pkgs.vimPlugins; [
+      denops-vim
+      vim-sandwich
     ];
   };
 }
