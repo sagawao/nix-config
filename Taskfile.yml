@@ -1,19 +1,21 @@
-version: '3'
+version: "3"
 
 tasks:
   re-*:
     vars:
-      SYSTEM: '{{index .MATCH 0}}'
+      SYSTEM: "{{index .MATCH 0}}"
     cmds:
       - sudo nixos-rebuild switch --flake .#{{.SYSTEM}}
   debug-*:
     vars:
-      SYSTEM: '{{index .MATCH 0}}'
+      SYSTEM: "{{index .MATCH 0}}"
     cmds:
       - nixos-rebuild switch --flake .#{{.SYSTEM}} --show-trace --verbose
-  re-user:
+  user-*:
+    vars:
+      USERNAME: "{{index .MATCH 0}}"
     cmds:
-      - nix run nixpkgs#home-manager -- switch --flake .#sagawao
+      - nix run nixpkgs#home-manager -- switch --flake .#{{.USERNAME}}
   up:
     cmds:
       - nix flake update

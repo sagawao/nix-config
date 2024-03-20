@@ -20,8 +20,9 @@
 
   outputs = { self, nixpkgs, home-manager, vscode-server, ... } @inputs:
   let
+    username = "sagawao";
     mkSystem = import ./lib/mksystem.nix {
-      inherit nixpkgs inputs;
+      inherit nixpkgs inputs username;
     };
   in {
   
@@ -31,7 +32,16 @@
 
     nixosConfigurations.wsl = mkSystem "wsl" {
       system = "x86_64-linux";
-      wsl = true;
+      isWSL = true;
+    };
+
+    homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages."x86_64-linux";
+      extraSpecialArgs = { 
+        inherit inputs username;
+        isWSL = true;
+      };
+      modules = [ ./home/default.nix ];
     };
   };
 }

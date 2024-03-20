@@ -1,11 +1,10 @@
-{ nixpkgs, inputs }:
+{ nixpkgs, inputs, username }:
 
 name:
-{ system, wsl ? false }:
+{ system, isWsl ? false }:
 
 let
 
-  isWSL = wsl;
   machineConfig = ../system/machines/${name}.nix;
   osConfig = ../system/nixos.nix;
 
@@ -28,9 +27,8 @@ in nixpkgs.lib.nixosSystem rec {
     inputs.home-manager.nixosModules.home-manager {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
-      home-manager.users.sagawao = import ../home/default.nix {
-        isWSL = isWSL;
-	inputs = inputs;
+      home-manager.users.${username} = import ../home/default.nix {
+        inherit inputs username isWSL;
       };
     }
 
