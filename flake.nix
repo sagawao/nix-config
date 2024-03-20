@@ -24,6 +24,10 @@
     mkSystem = import ./lib/mksystem.nix {
       inherit nixpkgs inputs username;
     };
+    homeConfig = import ./home {
+      inherit inputs username;
+      isWSL = true;
+    };
   in {
   
     nixosConfigurations.intel = mkSystem "intel" {
@@ -37,11 +41,7 @@
 
     homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      extraSpecialArgs = { 
-        inherit inputs username;
-        wsl = true;
-      };
-      modules = [ ./home/default.nix ];
+      modules = [ homeConfig ];
     };
   };
 }
