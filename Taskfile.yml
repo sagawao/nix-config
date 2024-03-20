@@ -11,11 +11,11 @@ tasks:
       SYSTEM: "{{index .MATCH 0}}"
     cmds:
       - nixos-rebuild switch --flake .#{{.SYSTEM}} --show-trace --verbose
-  user-*:
-    vars:
-      USERNAME: "{{index .MATCH 0}}"
+  user:
+    # vars:
+    #   USERNAME: "{{index .MATCH 0}}"
     cmds:
-      - nix run nixpkgs#home-manager -- switch --flake .#{{.USERNAME}}
+      - home-manager switch --flake .#sagawao
   up:
     cmds:
       - nix flake update
