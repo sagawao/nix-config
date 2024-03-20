@@ -7,8 +7,11 @@
     ./starship.nix
     ./zsh.nix
     ./neovim.nix
+    ./emacs.nix
   ];
-
+  nixpkgs.overlays = [
+    (import inputs.emacs-overlay)
+  ];
   home = {
     inherit username;
     homeDirectory = "/home/${username}";
@@ -21,6 +24,8 @@
       zsh
       direnv
       go-task
+      ripgrep
+      #
     ] ++ (lib.optionals (!isWSL) [
       firefox
       alacritty

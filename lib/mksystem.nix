@@ -24,6 +24,13 @@ in nixpkgs.lib.nixosSystem rec {
     machineConfig
     osConfig
 
+    {
+      nix.settings.trusted-users = [ "sagawao" ];
+    }  
+    ({ config, pkgs, ... }: {
+      nixpkgs.overlays = [ inputs.emacs-overlay.overlays.emacs ];
+    })
+
     inputs.home-manager.nixosModules.home-manager {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
