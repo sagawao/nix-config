@@ -1,10 +1,10 @@
 { nixpkgs, inputs, username }:
 
 name:
-{ system, isWsl ? false }:
+{ system, wsl ? false }:
 
 let
-
+  isWSL = wsl;
   machineConfig = ../system/machines/${name}.nix;
   osConfig = ../system/nixos.nix;
 
