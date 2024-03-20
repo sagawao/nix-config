@@ -26,6 +26,7 @@
       starship
       zsh
       direnv
+      go-task
     ] ++ (lib.optionals (!isWSL) [
       firefox
       alacritty

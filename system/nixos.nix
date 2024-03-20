@@ -19,7 +19,6 @@
   environment.systemPackages = with pkgs; [
     git
     zsh
-    go-task
     curl
 ];
   environment.variables.EDITOR = "nvim";
