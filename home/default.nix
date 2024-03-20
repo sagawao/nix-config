@@ -2,6 +2,7 @@
   username,
   isWSL,
   inputs,
+  config,
   lib,
   pkgs,
   ...
@@ -18,7 +19,7 @@
   home = {
     inherit username;
     homeDirectory = "/home/${username}";
-    stateVersion = "22.11";
+    stateVersion = "23.11";
 
     packages = with pkgs; [
       git
