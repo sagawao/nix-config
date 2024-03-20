@@ -1,13 +1,6 @@
-{ 
-  username,
-  isWSL,
-  inputs,
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{ isWSL, inputs, username }:
 
+{ config, lib, pkgs, ... } : {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ./alacritty.nix
