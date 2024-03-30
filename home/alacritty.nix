@@ -9,6 +9,7 @@
         padding.y = 10;
       };
       font.size = 7;
+      font.offset.y = 5;
       import = [ "${pkgs.alacritty-theme}/solarized_light.toml" ];
       shell = {
         program = "${pkgs.zsh}/bin/zsh";
