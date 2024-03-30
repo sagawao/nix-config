@@ -5,6 +5,7 @@
     inputs.nixvim.homeManagerModules.nixvim
     ./alacritty.nix
     ./starship.nix
+    ./zellij.nix
     ./zsh.nix
     ./neovim.nix
   ];
@@ -22,14 +23,18 @@
       zsh
       direnv
       go-task
+      deno # denops dependency
     ] ++ (lib.optionals (!isWSL) [
       firefox
       alacritty
       alacritty-theme
+    ]) ++ (lib.optionals (isWSL) [
+      wl-clipboard
     ]);
 
     sessionVariables = {
       EDITOR = "nvim";
+      SHELL = "zsh";
       TERMINAL = "alacritty";
     };
     
@@ -58,7 +63,6 @@
 
   programs = {
     home-manager.enable = true;
-    zellij.enable = true;
     firefox.enable = !isWSL;
   };
 }

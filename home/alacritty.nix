@@ -10,6 +10,14 @@
       };
       font.size = 7;
       import = [ "${pkgs.alacritty-theme}/solarized_light.toml" ];
+      shell = {
+        program = "${pkgs.zsh}/bin/zsh";
+        args = [ 
+          "-l"
+          "-c"
+          "zellij attach --index 0 --create"
+        ];
+      };
     };
   };
 }
