@@ -7,7 +7,7 @@
     ./starship.nix
     ./zellij.nix
     ./zsh.nix
-    ./neovim.nix
+    ./nvim
   ];
 
   home = {

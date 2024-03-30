@@ -1,9 +1,9 @@
 { pkgs, lib, ... }:
 {
   imports = [
-    ./nvim/lsp.nix
-    ./nvim/theme.nix
-    ./nvim/ddc.nix
+    ./lsp.nix
+    ./theme.nix
+    ./ddc.nix
   ];
   programs.nixvim = {
     enable = true;
