@@ -24,6 +24,7 @@
       direnv
       go-task
       deno # denops dependency
+      nodejs-slim_20 # github copilot dependency
     ] ++ (lib.optionals (!isWSL) [
       firefox
       alacritty

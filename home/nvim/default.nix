@@ -30,6 +30,8 @@
     
     plugins.nvim-autopairs.enable = true;
     
+    plugins.copilot-vim.enable = true;
+
     extraPlugins = with pkgs.vimPlugins; [
       denops-vim
       vim-sandwich
