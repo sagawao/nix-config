@@ -1,7 +1,12 @@
 {
   programs.zellij = {
     enable = true;
+
     settings = {
+    	default_shell = "zsh";
+	copy_command = "xclip -selection clipboard";
+
+	# THEME
         theme = "solarized_light";
         themes.solarized_light.fg = "#657B83";
         themes.solarized_light.bg = "#FDF6E3";
