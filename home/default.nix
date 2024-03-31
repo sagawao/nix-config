@@ -64,9 +64,16 @@
     nix-direnv.enable = true;
   };
 
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "Solarized (light)";
+    };
+  };
+
   programs = {
     home-manager.enable = true;
     firefox.enable = !isWSL;
-    bat.enable = true;
-};
+  };
+
 }
