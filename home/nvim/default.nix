@@ -29,9 +29,12 @@
     };
     
     plugins.nvim-autopairs.enable = true;
-    
     plugins.copilot-vim.enable = true;
 
+    plugins.lightline = {
+      enable = true;
+      colorscheme = "solarized";
+    };
     extraPlugins = with pkgs.vimPlugins; [
       denops-vim
       vim-sandwich
