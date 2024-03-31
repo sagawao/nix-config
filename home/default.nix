@@ -21,6 +21,8 @@
       zellij
       starship
       zsh
+      bat
+      xclip
       direnv
       go-task
       deno # denops dependency
@@ -65,5 +67,6 @@
   programs = {
     home-manager.enable = true;
     firefox.enable = !isWSL;
-  };
+    bat.enable = true;
+};
 }
