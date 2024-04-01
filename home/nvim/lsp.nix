@@ -9,10 +9,11 @@
                 nixd.enable = true;
                 tsserver.enable = true;
                 html.enable = true;
+		marksman.enable = true;
                 rust-analyzer = {
-                enable = true;
-                installCargo = true;
-                installRustc = true;
+                    enable = true;
+                    installCargo = true;
+                    installRustc = true;
                 };
             };
             keymaps.lspBuf = {
@@ -23,5 +24,6 @@
                 "K" = "hover";
             };
         };
+	plugins.lsp-lines.enable = true;
     };
 }
