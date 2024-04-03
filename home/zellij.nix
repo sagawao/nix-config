@@ -6,6 +6,8 @@
     	default_shell = "zsh";
 	copy_command = "xclip -selection clipboard";
 
+	default_moda = "locked";
+
 	# THEME
         theme = "solarized_light";
         themes.solarized_light.fg = "#657B83";
