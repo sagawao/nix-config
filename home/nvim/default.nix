@@ -19,15 +19,6 @@
       autoReloadOnWrite = true;
     };
 
-    plugins = {
-      treesitter = {
-        enable = true;
-        indent = true;
-      };
-      treesitter-context.enable = true;
-      rainbow-delimiters.enable = true;
-    };
-    
     plugins.nvim-autopairs.enable = true;
     plugins.copilot-vim.enable = true;
     plugins.indent-blankline = {
