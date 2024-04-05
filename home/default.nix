@@ -22,6 +22,8 @@
       starship
       zsh
       bat
+      ripgrep
+      skim
       xclip
       direnv
       go-task
@@ -72,6 +74,8 @@
   };
 
   programs = {
+    ripgrep.enable = true;
+    skim.enable = true;
     home-manager.enable = true;
     firefox.enable = !isWSL;
   };
