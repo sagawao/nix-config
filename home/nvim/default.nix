@@ -4,6 +4,7 @@
     ./lsp.nix
     ./theme.nix
     ./ddc.nix
+    ./ddu.nix
   ];
   programs.nixvim = {
     enable = true;
@@ -21,11 +22,6 @@
           indent.char = "│";
          };
         debounce = 500;
-    };
-
-    plugins.lightline = {
-      enable = true;
-      colorscheme = "solarized";
     };
 
     extraPlugins = with pkgs.vimPlugins; [
