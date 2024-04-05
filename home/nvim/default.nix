@@ -13,12 +13,6 @@
       relativenumber = true;
     };
 
-    plugins.nvim-tree = {
-      enable = true;
-      openOnSetup = true;
-      autoReloadOnWrite = true;
-    };
-
     plugins.nvim-autopairs.enable = true;
     plugins.copilot-vim.enable = true;
     plugins.indent-blankline = {
