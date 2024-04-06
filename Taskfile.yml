@@ -3,14 +3,14 @@ version: "3"
 tasks:
   re-*:
     vars:
-      SYSTEM: "{{index .MATCH 0}}"
+      MACHINE: "{{index .MATCH 0}}"
     cmds:
-      - sudo nixos-rebuild switch --flake .#{{.SYSTEM}}
+      - sudo nixos-rebuild switch --flake .#{{.MACHINE}}
   debug-*:
     vars:
-      SYSTEM: "{{index .MATCH 0}}"
+      MACHINE: "{{index .MATCH 0}}"
     cmds:
-      - nixos-rebuild switch --flake .#{{.SYSTEM}} --show-trace --verbose
+      - nixos-rebuild switch --flake .#{{.MACHINE}} --show-trace --verbose
   user:
     # vars:
     #   USERNAME: "{{index .MATCH 0}}"

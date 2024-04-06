@@ -1,4 +1,4 @@
-{ isWSL, inputs, username }:
+{ withoutDM, isWSL, inputs, username }:
 
 { config, lib, pkgs, ... } : {
   imports = [
@@ -31,7 +31,7 @@
       skk-dicts # for skkeleton
       deno # for denops.vim
       nodejs-slim_20 # for gh copilot
-    ] ++ (lib.optionals (!isWSL) [
+    ] ++ (lib.optionals (withoutDM) [
       firefox
       alacritty
       alacritty-theme
@@ -45,7 +45,7 @@
       TERMINAL = "alacritty";
     };
     
-    file = (if (!isWSL) then {
+    file = (if (withoutDM) then {
       "wallpaper.png" = {
         target = "/Wallpaper/wallpaper.png";
 	      source = ./wallpaper/nix-wallpaper-nineish-solarized-light.png;
@@ -85,7 +85,7 @@
     ripgrep.enable = true;
     skim.enable = true;
     home-manager.enable = true;
-    firefox.enable = !isWSL;
+    firefox.enable = withoutDM;
   };
 
 }
