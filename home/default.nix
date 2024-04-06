@@ -27,8 +27,9 @@
       xclip
       direnv
       go-task
-      deno # denops dependency
-      nodejs-slim_20 # github copilot dependency
+      skk-dicts # for skkeleton
+      deno # for denops.vim
+      nodejs-slim_20 # for gh copilot
     ] ++ (lib.optionals (!isWSL) [
       firefox
       alacritty

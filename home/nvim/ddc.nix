@@ -54,7 +54,7 @@ in
                 rev = "ee205bba8011a941380412a34e47ca67bb5fa41f";
                 sha256 = "0jkzfixiw2baps448m6nvlkg1ww6hd44sk0jay4x7xdzsjxxiqdm";
             })
-        ];
+	];
 
         extraConfigLua = (builtins.readFile ./ddc.lua);
     };

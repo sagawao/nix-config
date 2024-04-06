@@ -1,5 +1,9 @@
 vim.fn["ddc#custom#patch_global"]('ui', 'native')
-vim.fn["ddc#custom#patch_global"]('sources', {'around', 'lsp'})
+vim.fn["ddc#custom#patch_global"]('sources', {
+	'around',
+	'lsp',
+	'skkeleton',
+})
 vim.fn["ddc#custom#patch_global"]('sourceOptions', {
     _ = {
         matchers = {'matcher_fuzzy'},
@@ -9,6 +13,14 @@ vim.fn["ddc#custom#patch_global"]('sourceOptions', {
     lsp = {
         mark = 'lsp',
         forceCompletionPattern = '\\.\\w*|:\\w*|->\\w*',
+    },
+    skkeleton = {
+	mark = 'skkeleton',
+	matchers = {},
+	sorters = {},
+	converters = {},
+	isVolatile = true,
+	minAutoCompleteLength = 1,
     },
 })
 

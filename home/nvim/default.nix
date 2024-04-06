@@ -5,7 +5,9 @@
     ./theme.nix
     ./ddc.nix
     ./ddu.nix
+    ./skkeleton.nix
   ];
+
   programs.nixvim = {
     enable = true;
 
