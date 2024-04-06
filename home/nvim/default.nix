@@ -17,7 +17,15 @@
     };
 
     plugins.nvim-autopairs.enable = true;
-    plugins.copilot-vim.enable = true;
+    plugins.copilot-vim = {
+      enable = true;
+      settings = {
+        filetypes = {
+	  markdown = false;
+	  text = false;
+	};
+      };
+    };
     plugins.indent-blankline = {
         enable = true;
         extraOptions = {

@@ -7,6 +7,8 @@
     syntaxHighlighting.enable = true;
     shellAliases = {
     	cat = "bat";
+	ls = "eza";
+	grep = "rg";
     };
   };
 }

@@ -24,6 +24,7 @@
       bat
       ripgrep
       skim
+      eza
       xclip
       direnv
       go-task
@@ -72,6 +73,12 @@
     config = {
       theme = "Solarized (light)";
     };
+  };
+
+  programs.eza = {
+    enable = true;
+    enableZshIntegration = true;
+    icons = true;
   };
 
   programs = {
