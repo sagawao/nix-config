@@ -34,10 +34,8 @@ in nixpkgs.lib.nixosSystem rec {
 
     {
       config._module.args = {
-        currentSystem = system;
-        isWSL = isWSL;
-	useDM = useDM;
-        inputs = inputs;
+        inherit isWSL useDM inputs username;
+	currentSystem = system;
       };
     }
   ];

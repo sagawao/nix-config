@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, username, ... }:
 
 {
   system.stateVersion = "23.11";
@@ -10,9 +10,9 @@
     };
   };
 
-  users.users.sagawao = {
+  users.users.${username} = {
     isNormalUser = true;
-    home = "/home/sagawao";
+    home = "/home/${username}";
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
@@ -21,7 +21,7 @@
     zsh
     curl
 ];
-  environment.variables.EDITOR = "nvim";
+  environment.variables.EDITOR = "vim";
 
   programs = {
     git.enable = true;
