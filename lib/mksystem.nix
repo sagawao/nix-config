@@ -1,7 +1,7 @@
 { nixpkgs, inputs, username }:
 
 name:
-{ system, wsl ? false, withoutDM ? false}:
+{ system, wsl ? false, useDM ? true}:
 
 let
   isWSL = wsl;
@@ -28,7 +28,7 @@ in nixpkgs.lib.nixosSystem rec {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
       home-manager.users.${username} = import ../home/default.nix {
-        inherit inputs username withoutDM isWSL;
+        inherit inputs username useDM isWSL;
       };
     }
 
@@ -36,7 +36,7 @@ in nixpkgs.lib.nixosSystem rec {
       config._module.args = {
         currentSystem = system;
         isWSL = isWSL;
-	withoutDM = withoutDM;
+	useDM = useDM;
         inputs = inputs;
       };
     }

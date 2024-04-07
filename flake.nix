@@ -27,17 +27,18 @@
     homeConfig = import ./home {
       inherit inputs username;
       isWSL = true;
-      withoutDM = true;
+      useDM = false;
     };
   in {
   
     nixosConfigurations.pingu = mkSystem "pingu" {
       system = "x86_64-linux";
+      useDM = true;
     };
 
     nixosConfigurations.miffy = mkSystem "miffy" {
       system = "x86_64-linux";
-      withoutDM = true;
+      useDM = false;
     };
 
     nixosConfigurations.wsl = mkSystem "wsl" {
