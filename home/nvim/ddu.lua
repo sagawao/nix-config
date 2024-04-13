@@ -1,5 +1,14 @@
 vim.fn["ddu#custom#patch_global"]({
     ui = 'ff',
+    uiParams = {
+	ff = {
+	    split = 'floating',
+	    floatingBorder = 'rounded',
+	    previewFloating = true,
+	    previewFloatingBorder = 'rounded',
+	    previewSplit = 'horizontal',
+	},
+    },
     sourceOptions = {
         _ = {
             matchers = {'matcher_substring'}

@@ -1,11 +1,7 @@
 { pkgs, ... }:
 {
     programs.nixvim = {
-        colorscheme = "solarized";
-        extraConfigLua = ''
-        vim.o.background = 'light'
-        vim.g.solarized_disable_background = true
-        '';
+        extraConfigLua = (builtins.readFile ./theme.lua);
         extraPlugins = with pkgs.vimPlugins; [
             solarized-nvim
         ];
