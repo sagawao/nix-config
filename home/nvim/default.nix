@@ -47,7 +47,7 @@
     ];
 
     extraConfigLua = ''
-        if vim.fn.has("wsl" == 1 then)
+        if vim.fn.has("wsl" == 1) then
 		vim.g.clipboard = {
 		  name = "win32yank",
 		  copy = {
