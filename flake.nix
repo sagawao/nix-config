@@ -24,7 +24,7 @@
   let
     username = "sagawao";
     mkSystem = import ./lib/mksystem.nix {
-      inherit nixpkgs inputs username;
+      inherit nixpkgs inputs username catppuccin;
     };
     homeConfig = import ./home {
       inherit inputs username;

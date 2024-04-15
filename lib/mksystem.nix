@@ -1,4 +1,4 @@
-{ nixpkgs, inputs, username }:
+{ nixpkgs, inputs, username, catppuccin }:
 
 name:
 { system, wsl ? false, useDM ? true}:
@@ -27,9 +27,14 @@ in nixpkgs.lib.nixosSystem rec {
     inputs.home-manager.nixosModules.home-manager {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
-      home-manager.users.${username} = import ../home/default.nix {
-        inherit inputs username useDM isWSL;
-      };
+      home-manager.users.${username} = {
+        imports = [
+	  (import ../home/default.nix {
+	    inherit inputs username useDM isWSL;
+          })
+	  catppuccin.homeManagerModules.catppuccin
+	];
+      }; 
     }
 
     {
