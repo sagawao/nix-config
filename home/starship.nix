@@ -1,6 +1,7 @@
 {
   programs.starship = {
     enable = true;
+    catppuccin.enable = true;
     settings = {
       # Nerd Font Symbols
       aws.symbol = "  ";

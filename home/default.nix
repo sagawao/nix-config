@@ -52,7 +52,8 @@
        };
       } else {});
   };
-  
+  catppuccin.flavour = "latte";
+
   programs.git = {
     enable = true;
     userName = "rn sagawa";
@@ -71,8 +72,9 @@
   programs.bat = {
     enable = true;
     config = {
-      theme = "Solarized (light)";
+      # theme = "Solarized (light)";
     };
+    catppuccin.enable = true;
   };
 
   programs.eza = {

@@ -2,7 +2,7 @@
 {
   imports = [
     ./lsp.nix
-    ./theme.nix
+    # ./theme.nix
     ./ddc.nix
     ./ddu.nix
     ./skkeleton.nix
@@ -10,7 +10,10 @@
 
   programs.nixvim = {
     enable = true;
-
+    colorschemes.catppuccin = {
+      enable = true;
+      flavour = "latte";
+    };
     options = {
       number = true;
       relativenumber = true;

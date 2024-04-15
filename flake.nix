@@ -16,9 +16,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, vscode-server, ... } @inputs:
+  outputs = { self, nixpkgs, home-manager, vscode-server, catppuccin, ... } @inputs:
   let
     username = "sagawao";
     mkSystem = import ./lib/mksystem.nix {
@@ -48,7 +50,10 @@
 
     homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      modules = [ homeConfig ];
+      modules = [ 
+          homeConfig
+	  catppuccin.homeManagerModules.catppuccin
+      ];
     };
   };
 }

@@ -10,7 +10,8 @@
       };
       font.size = 7;
       font.offset.y = 5;
-      import = [ "${pkgs.alacritty-theme}/solarized_light.toml" ];
+      # import = [ "${pkgs.alacritty-theme}/solarized_light.toml" ];
     };
+    catppuccin.enable = true;
   };
 }
