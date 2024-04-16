@@ -48,6 +48,18 @@ in
                 rev = "3f370d0da93bd47bb3a937a0c8f8193582eee8c8";
                 sha256 = "1knfvwcd7wfiy1vh2m9gwr5wh1crn60mmvpjwdqa739m8nrdfw79";
             })
+	    (buildVimPlugin {
+	        name = "ddc-ui-pum";
+		owner = "Shougo";
+		rev = "6fd98ba227889883bbf75405506c451feaae6ef8";
+		sha256 = "1yy572i672ha5zlxkda6lv5mp2y5yq0sd1ffpa6my59rzv86ixr7";
+	    })
+	    (buildVimPlugin {
+	    	name = "pum.vim";
+		owner = "Shougo";
+		rev = "0aae6a6d4cc356794925832d144a4e20af70aebb";
+		sha256 = "0lcmfyrir4pppvpcx4d592w144yxy20f7pjmi1hbxavaqsdmv4zq";
+	    })
             (buildVimPlugin {
                 name = "ddc-fuzzy";
                 owner = "tani";

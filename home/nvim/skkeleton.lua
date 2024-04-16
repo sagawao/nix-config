@@ -1,4 +1,2 @@
-
-vim.api.nvim_set_keymap('i', '<C-j>', '<Plug>(skkeleton-enable)', {noremap = false, silent = true})
-vim.api.nvim_set_keymap('c', '<C-j>', '<Plug>(skkeleton-enable)', {noremap = false, silent = true})
-
+vim.keymap.set('i', '<C-j>', '<Plug>(skkeleton-toggle)', {noremap = true, silent = true})
+vim.keymap.set('c', '<C-j>', '<Plug>(skkeleton-toggle)', {noremap = true, silent = true})
