@@ -52,7 +52,27 @@
        };
       } else {});
   };
+  
+  # themes
   catppuccin.flavour = "latte";
+  gtk = (if (!isWSL) then {
+    enable = true;
+    theme = {
+      name = "Catppuccin-Latte";
+      package = pkgs.catppuccin-gtk.override {
+        accents = ["blue"];
+	size = "compact";
+	tweaks = [ "rimless" "black" ];
+	variant = "latte";
+      };
+    };
+  } else {});
+
+  xdg.configFile = (if (!isWSL) then {
+    "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+    "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+    "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css"; 
+  } else {});
 
   programs.git = {
     enable = true;
